@@ -1,0 +1,32 @@
+@model Equinox.Models.EquinoxClass
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Class Details";
+}
+
+<h2>@Model.Name</h2>
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="~/images/@Model.ClassPicture" class="img-fluid rounded-start" alt="@Model.Name" />
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <p class="card-text"><strong>Club:</strong> @Model.Club.Name</p>
+                <p class="card-text"><strong>Category:</strong> @Model.ClassCategory.Name</p>
+                <p class="card-text"><strong>Time:</strong> @Model.Time on @Model.ClassDay</p>
+                <p class="card-text"><strong>Coach:</strong> @Model.User.Name</p>
+
+                <form asp-action="Book" method="post">
+                    <input type="hidden" name="id" value="@Model.EquinoxClassId" />
+                    <button type="submit" class="btn btn-primary">Book This Class</button>
+                </form>
+
+                <a asp-action="ShowClasses" class="btn btn-secondary mt-2">Back to Classes</a>
+            </div>
+        </div>
+    </div>
+</div>

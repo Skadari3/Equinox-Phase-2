@@ -1,0 +1,20 @@
+@{
+    Layout = "_Layout";
+}
+
+@section Header {
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0B3D91;">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" asp-area="Admin" asp-controller="Home" asp-action="Index">Equinox</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Back to Site</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+}
+
+@RenderBody()

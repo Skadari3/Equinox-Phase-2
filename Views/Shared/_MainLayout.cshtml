@@ -1,0 +1,49 @@
+@{
+    Layout = "_Layout";
+}
+
+@section Header {
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Equinox</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Club" asp-action="List">Clubs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Class" asp-action="List">Classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Membership" asp-action="List">Membership</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="PrivateClass" asp-action="List">Private Training</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Gym" asp-action="ShowClasses">Gym Session</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Gym" asp-action="ViewBookings">
+                            Bookings
+                            @if (ViewBag.CartCount != null && (int)ViewBag.CartCount > 0)
+                            {
+                                <span class="badge bg-danger ms-1">@ViewBag.CartCount</span>
+                            }
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+}
+
+@RenderBody()
